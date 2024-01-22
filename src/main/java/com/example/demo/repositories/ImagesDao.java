@@ -1,7 +1,5 @@
 package com.example.demo.repositories;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,5 +7,5 @@ import com.example.demo.entities.Images;
 @Repository
 public interface ImagesDao extends JpaRepository<Images, Integer>{
 
-	Optional<Images> findByName(String imageName);
+	Images findByName(String imageName);
 }

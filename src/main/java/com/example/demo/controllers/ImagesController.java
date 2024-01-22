@@ -33,11 +33,11 @@ public class ImagesController {
 	}
 	
 	@GetMapping("/download/{imageName}")
-	public ResponseEntity<?> downloadImage(@PathVariable("imageName") String name){
-		Optional<Images> result = imagesBo.downloadImages(name);
+	public ResponseEntity<?> downloadImage(@PathVariable("imageName") String name) throws IOException{
+		Images result = imagesBo.downloadImages(name);
 		return ResponseEntity.status(HttpStatus.OK)
 				.contentType(MediaType.valueOf("image/png"))
-				.body(result.get().getImageData());
+				.body(result.getImageData());
 		
 	}
 }
